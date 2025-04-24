@@ -12,12 +12,14 @@ services:
       MYSQL_USER: db
       MYSQL_PASSWORD: inRKI@0510
 
-
+    expose:
+      - '3306'
+      
     ports:
       - "3309:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - data:/var/lib/mysql
 
 
 volumes:
-  mysql_data:
+  data:

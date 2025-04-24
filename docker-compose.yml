@@ -5,16 +5,19 @@ services:
     image: mysql
     container_name: db
     restart: always
+
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: inRKI@0510
-      MYSQL_USER: root
+      MYSQL_USER: db
       MYSQL_PASSWORD: inRKI@0510
+      MYSQL_ROOT_HOST: '%'
+
     ports:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf:ro
 
 volumes:
   mysql_data:
-

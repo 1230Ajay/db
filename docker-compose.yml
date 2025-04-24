@@ -1,21 +1,20 @@
 version: '3.8'
 
 services:
-  mysql:
-    image: mysql
+  postgres:
+    image: postgres
     container_name: db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: inRKI@0510
-      MYSQL_USER: db
-      MYSQL_PASSWORD: inRKI@0510
+      POSTGRES_USER: db
+      POSTGRES_PASSWORD: inRKI@0510
+      POSTGRES_DB: inRKI@0510
     expose:
-      - '3306'  
+      - '5432'  
     ports:
-      - "3306:3306" 
+      - "5432:5432"  
     volumes:
-      - data:/var/lib/mysql
+      - data:/var/lib/postgresql/data 
 
 volumes:
   data:

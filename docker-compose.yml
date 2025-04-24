@@ -2,19 +2,19 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres
+    image: postgres:latest
     container_name: db
     restart: always
     environment:
       POSTGRES_USER: db
       POSTGRES_PASSWORD: inRKI@0510
       POSTGRES_DB: inRKI@0510
-    expose:
-      - '5432'  
     ports:
       - "5432:5432"  
     volumes:
-      - data:/var/lib/postgresql/data 
+      - data:/var/lib/postgresql/data  
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf.sample  
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
 
 volumes:
   data:
